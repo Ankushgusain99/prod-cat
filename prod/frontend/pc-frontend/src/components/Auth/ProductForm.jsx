@@ -251,17 +251,15 @@ const ProductForm = () => {
     width: 1,
   });
 
-
-
   return (
     <>
       <Box sx={{width:'200vh',overflow:'auto',backgroundColor:'greenyellow',padding:'20px',marginLeft:'10px'}}>
         <Typography variant="h4" sx={{display:"flex",alignItems:"flex-start",paddingLeft:'140px'}} >Welcome to the RE-Search project</Typography>
         <Typography sx={{display:"flex",alignItems:"flex-start",paddingLeft:'140px'}}>Your work contributes to the world's largest Asian grocery database in Europe!</Typography>
       </Box>
-      <Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'30px'}}>Basic information</Typography>
+      <Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'40px'}}>Basic information</Typography>
 
-      <Grid container spacing={2} paddingLeft="30px">
+      <Grid container spacing={2} paddingLeft="40px">
         <Grid item xs={4} marginTop='20px'>
           <TextField
             label="Product Name"
@@ -326,7 +324,7 @@ const ProductForm = () => {
       </Grid>
 
 
-      <Grid container spacing={2} paddingLeft='30px'>
+      <Grid container spacing={2} paddingLeft='40px'>
         <Grid item xs={4} marginTop='20px'>
           
           <FormControl fullWidth>
@@ -440,9 +438,9 @@ const ProductForm = () => {
       </Grid>
       
 
-      <Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'30px'}}>Product Specifications</Typography>
+      <Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'40px'}}>Product Specifications</Typography>
 
-      <Grid container spacing={2} paddingLeft='30px'>
+      <Grid container spacing={2} paddingLeft='40px'>
         <Grid item xs={4} marginTop='20px'>
         <FormControl fullWidth>
       <select
@@ -518,7 +516,7 @@ const ProductForm = () => {
         </Grid>
       </Grid>
       
-      <Grid container spacing={2} paddingLeft='30px'>
+      <Grid container spacing={2} paddingLeft='40px'>
         <Grid item xs={4} marginTop='20px'>
           <TextField
             label="Unit Weight"
@@ -613,11 +611,11 @@ const ProductForm = () => {
         </Grid>
       </Grid>
 
-      <Typography variant="h6" sx={{ color: 'white',display:'flex',justifyItems:'center',marginTop:'40px',paddingLeft:'30px'}}>
+      <Typography variant="h6" sx={{ color: 'white',display:'flex',justifyItems:'center',marginTop:'40px',paddingLeft:'40px'}}>
       Nutritional Information(per 100g)
       </Typography>
 
-      <Grid container spacing={2} paddingLeft='30px'>
+      <Grid container spacing={2} paddingLeft='40px'>
         <Grid item xs={4} marginTop='20px'>
         <TextField
         name="calories"
@@ -730,7 +728,7 @@ const ProductForm = () => {
       </Grid>
 
 
-      <Grid container spacing={2} paddingLeft='30px'>
+      <Grid container spacing={2} paddingLeft='40px'>
         <Grid item xs={4} marginTop='20px'>
         <TextField
         name="carbs"
@@ -846,7 +844,7 @@ const ProductForm = () => {
       </Grid>
 
 
-      <Grid container spacing={2} paddingLeft='30px'>
+      <Grid container spacing={2} paddingLeft='40px'>
         <Grid item xs={4} marginTop='20px'>
         <TextField
         name="protein"
@@ -923,7 +921,7 @@ const ProductForm = () => {
         </Grid>
       </Grid>
 
-      <Typography variant="h6" color="white" sx={{display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'30px'}}>
+      <Typography variant="h6" color="white" sx={{display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'40px'}}>
             Ingredients
           </Typography>
       <textarea
@@ -938,12 +936,12 @@ const ProductForm = () => {
                 height: "100px",
                 width: "65%",
                 placeholder: "Type the ingredients here",
-                marginLeft:'30px'
+                marginLeft:'40px'
               }}
             />
 
 
-          <Typography variant="h6" color="white" sx={{display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'30px'}}>
+          <Typography variant="h6" color="white" sx={{display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'40px'}}>
             Description
           </Typography>
           <textarea
@@ -958,14 +956,14 @@ const ProductForm = () => {
                 height: "100px",
                 width: "65%",
                 placeholder: "Type the description here",
-                marginLeft:'30px'
+                marginLeft:'40px'
               }}
             />
 
     
-<Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'30px'}}>Additional Information</Typography>
+<Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'40px'}}>Additional Information</Typography>
 
-<Grid container spacing={2} paddingLeft='30px'>
+<Grid container spacing={2} paddingLeft='40px'>
         <Grid item xs={4} marginTop='20px'>
         <FormControl fullWidth>
       <Select
@@ -1075,7 +1073,7 @@ const ProductForm = () => {
       </Grid>
 
 
-      <Grid container spacing={2} paddingLeft='30px'>
+      <Grid container spacing={2} paddingLeft='40px'>
         <Grid item xs={4} marginTop='20px'>
         <TextField
   label="Product Id Prefix"
@@ -1141,7 +1139,7 @@ const ProductForm = () => {
         </Grid>
       </Grid>
 
-      <Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'30px'}}>Attachments</Typography>
+      <Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'40px'}}>Attachments</Typography>
           <Button
             component="label"
             variant="contained"
@@ -1154,7 +1152,7 @@ const ProductForm = () => {
               backgroundColor: "#1A1A1A",
               color: "white",
               marginTop:'10px',
-              marginRight:'1120px',
+              marginRight:'1050px',
               paddingLeft:'30px',
               "&:hover": {
                 backgroundColor: "#1A1A1A", // Prevent color change on hover
