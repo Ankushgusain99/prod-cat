@@ -7,7 +7,12 @@ import { useLocation } from "react-router-dom";
 import MenuItem from "@mui/material/MenuItem";
 import { productData, countries } from "./Categories";
 import Select from "@mui/material/Select";
-import { Typography, IconButton, TextField, InputAdornment} from "@mui/material";
+import {
+  Typography,
+  IconButton,
+  TextField,
+  InputAdornment,
+} from "@mui/material";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { styled } from "@mui/material/styles";
@@ -144,7 +149,7 @@ const ProductForm = () => {
     formData.append("subCategory", selectedSubCategory);
     formData.append("numberOfUnits", noOfUnits);
     formData.append("siUnits", siUnits);
-    console.log(siUnits)
+    console.log(siUnits);
     formData.append("unitWeight", unitWeight);
     formData.append("netWeight", netWeight);
     formData.append("grossWeight", grossWeight);
@@ -253,14 +258,52 @@ const ProductForm = () => {
 
   return (
     <>
-      <Box sx={{width:'200vh',overflow:'auto',backgroundColor:'greenyellow',padding:'20px',marginLeft:'10px'}}>
-        <Typography variant="h4" sx={{display:"flex",alignItems:"flex-start",paddingLeft:'140px'}} >Welcome to the RE-Search project</Typography>
-        <Typography sx={{display:"flex",alignItems:"flex-start",paddingLeft:'140px'}}>Your work contributes to the world's largest Asian grocery database in Europe!</Typography>
+      <Box
+        sx={{
+          width: "195vh",
+          overflow: "auto",
+          backgroundColor: "greenyellow",
+          padding: "20px",
+          marginLeft: "40px",
+        }}
+      >
+        <Typography
+          variant="h4"
+          sx={{
+            display: "flex",
+            alignItems: "flex-start",
+            paddingLeft: "150px",
+          }}
+        >
+          Welcome to the RE-Search project
+        </Typography>
+        <Typography
+          sx={{
+            display: "flex",
+            alignItems: "flex-start",
+            paddingLeft: "150px",
+          }}
+        >
+          Your work contributes to the world's largest Asian grocery database in
+          Europe!
+        </Typography>
       </Box>
-      <Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'40px'}}>Basic information</Typography>
+
+      <Typography
+        variant="h6"
+        sx={{
+          color: "white",
+          display: "flex",
+          alignItems: "flex-start",
+          marginTop: "40px",
+          paddingLeft: "40px",
+        }}
+      >
+        Basic information
+      </Typography>
 
       <Grid container spacing={2} paddingLeft="40px">
-        <Grid item xs={4} marginTop='20px'>
+        <Grid item xs={4} marginTop="20px">
           <TextField
             label="Product Name"
             variant="outlined"
@@ -270,104 +313,97 @@ const ProductForm = () => {
             onChange={(e) => setProductName(e.target.value)}
             fullWidth
             InputProps={{
-              style: { color: '#FFFFFF' }, // Text color
+              style: { color: "#FFFFFF" }, // Text color
             }}
             InputLabelProps={{
-              style: { color: '#FFFFFF' }, // Label color
+              style: { color: "#FFFFFF" }, // Label color
             }}
             placeholder="Product Name"
             sx={{
-              '& .MuiOutlinedInput-root': {
-                '& fieldset': {
-                  borderColor: '#656567', // Border color
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#656567", // Border color
                 },
-                '&:hover fieldset': {
-                  borderColor: '#656567', // Border color on hover
+                "&:hover fieldset": {
+                  borderColor: "#656567", // Border color on hover
                 },
               },
-              '& .MuiInputBase-input::placeholder': {
-                color: '#FFFFFF', // Placeholder color
+              "& .MuiInputBase-input::placeholder": {
+                color: "#FFFFFF", // Placeholder color
               },
             }}
           />
         </Grid>
-        <Grid item xs={4} marginTop='20px'>
+        <Grid item xs={4} marginTop="20px">
           <TextField
             label="Product Brand"
-          
             type="text"
             value={productBrand}
             onChange={(e) => setProductBrand(e.target.value)}
             fullWidth
             InputProps={{
-              style: { color: '#FFFFFF' }, // Text color
+              style: { color: "#FFFFFF" }, // Text color
             }}
             InputLabelProps={{
-              style: { color: '#FFFFFF' }, // Label color
+              style: { color: "#FFFFFF" }, // Label color
             }}
             placeholder="Product Brand"
             sx={{
-              '& .MuiOutlinedInput-root': {
-                '& fieldset': {
-                  borderColor: '#656567', // Border color
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#656567", // Border color
                 },
-                '&:hover fieldset': {
-                  borderColor: '#656567', // Border color on hover
+                "&:hover fieldset": {
+                  borderColor: "#656567", // Border color on hover
                 },
               },
-              '& .MuiInputBase-input::placeholder': {
-                color: '#FFFFFF', // Placeholder color
+              "& .MuiInputBase-input::placeholder": {
+                color: "#FFFFFF", // Placeholder color
               },
             }}
           />
         </Grid>
       </Grid>
 
-
-      <Grid container spacing={2} paddingLeft='40px'>
-        <Grid item xs={4} marginTop='20px'>
-          
+      <Grid container spacing={2} paddingLeft="40px">
+        <Grid item xs={4} marginTop="20px">
           <FormControl fullWidth>
-  <Select
-    value={superCategory}
-    onChange={(e) => {
-      setSuperCategory(e.target.value);
-      setCategory(""); // Reset category and subcategory when supercategory changes
-      setSubCategory("");
-    }}
-    displayEmpty // This will allow showing the placeholder when the value is empty
-    sx={{
-      color: 'white',
-      '.MuiOutlinedInput-notchedOutline': {
-        borderColor: '#656567',
-      },
-      '&:hover .MuiOutlinedInput-notchedOutline': {
-        borderColor: '#656567',
-      },
-      '.MuiSvgIcon-root': {
-        color: '#FFFFFF',
-      },
-    }}
-  >
-    {/* Placeholder item */}
-    <MenuItem value="">
-      Select Supercategory
-    </MenuItem>
+            <Select
+              value={superCategory}
+              onChange={(e) => {
+                setSuperCategory(e.target.value);
+                setCategory(""); // Reset category and subcategory when supercategory changes
+                setSubCategory("");
+              }}
+              displayEmpty // This will allow showing the placeholder when the value is empty
+              sx={{
+                color: "white",
+                ".MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#656567",
+                },
+                "&:hover .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#656567",
+                },
+                ".MuiSvgIcon-root": {
+                  color: "#FFFFFF",
+                },
+              }}
+            >
+              {/* Placeholder item */}
+              <MenuItem value="">Select Supercategory</MenuItem>
 
-    {/* Dynamic productData options */}
-    {productData.map((sc) => (
-      <MenuItem key={sc._id} value={sc._id}>
-        {sc.name}
-      </MenuItem>
-    ))}
-  </Select>
-</FormControl>
-
+              {/* Dynamic productData options */}
+              {productData.map((sc) => (
+                <MenuItem key={sc._id} value={sc._id}>
+                  {sc.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </Grid>
 
-        <Grid item xs={4} marginTop='20px'>
+        <Grid item xs={4} marginTop="20px">
           <FormControl fullWidth>
-          
             <Select
               value={category}
               onChange={(e) => {
@@ -376,23 +412,21 @@ const ProductForm = () => {
               }}
               disabled={!superCategory}
               displayEmpty // This will allow showing the placeholder when the value is empty
-    sx={{
-      color: 'white',
-      '.MuiOutlinedInput-notchedOutline': {
-        borderColor: '#656567',
-      },
-      '&:hover .MuiOutlinedInput-notchedOutline': {
-        borderColor: '#656567',
-      },
-      '.MuiSvgIcon-root': {
-        color: 'white',
-      },
-    }}
+              sx={{
+                color: "white",
+                ".MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#656567",
+                },
+                "&:hover .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#656567",
+                },
+                ".MuiSvgIcon-root": {
+                  color: "white",
+                },
+              }}
             >
               {/* Placeholder item */}
-    <MenuItem value="">
-      Select Category
-    </MenuItem>
+              <MenuItem value="">Select Category</MenuItem>
 
               {getCategories(superCategory).map((cat) => (
                 <MenuItem key={cat._id} value={cat._id}>
@@ -403,7 +437,7 @@ const ProductForm = () => {
           </FormControl>
         </Grid>
 
-        <Grid item xs={4} marginTop='20px'>
+        <Grid item xs={4} marginTop="20px">
           <FormControl fullWidth>
             <Select
               value={subCategory}
@@ -411,22 +445,20 @@ const ProductForm = () => {
               disabled={!category}
               displayEmpty
               sx={{
-                color: 'white',
-                '.MuiOutlinedInput-notchedOutline': {
-                  borderColor: '#656567',
+                color: "white",
+                ".MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#656567",
                 },
-                '&:hover .MuiOutlinedInput-notchedOutline': {
-                  borderColor: '#656567',
+                "&:hover .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#656567",
                 },
-                '.MuiSvgIcon-root': {
-                  color: 'white',
+                ".MuiSvgIcon-root": {
+                  color: "white",
                 },
               }}
             >
               {/* Placeholder item */}
-    <MenuItem value="">
-      Select Sub-Category
-    </MenuItem>
+              <MenuItem value="">Select Sub-Category</MenuItem>
               {getSubCategories(superCategory, category).map((sub) => (
                 <MenuItem key={sub._id} value={sub._id}>
                   {sub.name}
@@ -436,88 +468,95 @@ const ProductForm = () => {
           </FormControl>
         </Grid>
       </Grid>
-      
 
-      <Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'40px'}}>Product Specifications</Typography>
-
-      <Grid container spacing={2} paddingLeft='40px'>
-        <Grid item xs={4} marginTop='20px'>
-        <FormControl fullWidth>
-      <select
-        value={siUnits}
-        onChange={(e) => {
-          setSiUnits(e.target.value);
+      <Typography
+        variant="h6"
+        sx={{
+          color: "white",
+          display: "flex",
+          alignItems: "flex-start",
+          marginTop: "40px",
+          paddingLeft: "40px",
         }}
-        style={{
-          color:'white',
-          borderColor: '#656567',
-          backgroundColor:'#1A1A1A',
-          height:'56px',
-          borderRadius:'6px',
-          padding:'0px 150px',
-          outline:'none',
-          fontFamily:'arial'
-        }}
-        // displayEmpty // Ensures that the placeholder is shown when value is empty
-        // sx={{
-        //   color: 'white',
-        //   '.MuiOutlinedInput-notchedOutline': {
-        //     borderColor: '#656567',
-        //   },
-        //   '&:hover .MuiOutlinedInput-notchedOutline': {
-        //     borderColor: '#656567',
-        //   },
-        //   '.MuiSvgIcon-root': {
-        //     color: 'white',
-        //   },
-        // }}
       >
-        {/* Placeholder item */}
-        <option value="">
-          SI Unit
-        </option>
+        Product Specifications
+      </Typography>
 
-        {/* Options */}
-        <option value="Kilograms">Kilograms</option>
-        <option value="Litres">Litres</option>
-        <option value="Pieces">Pieces</option>
-      </select>
-    </FormControl>
+      <Grid container spacing={2} paddingLeft="40px">
+        <Grid item xs={4} marginTop="20px">
+          <FormControl fullWidth>
+            <select
+              value={siUnits}
+              onChange={(e) => {
+                setSiUnits(e.target.value);
+              }}
+              style={{
+                color: "white",
+                borderColor: "#656567",
+                backgroundColor: "#1A1A1A",
+                height: "56px",
+                borderRadius: "6px",
+                padding: "0px 150px",
+                outline: "none",
+                fontFamily: "arial",
+              }}
+              // displayEmpty // Ensures that the placeholder is shown when value is empty
+              // sx={{
+              //   color: 'white',
+              //   '.MuiOutlinedInput-notchedOutline': {
+              //     borderColor: '#656567',
+              //   },
+              //   '&:hover .MuiOutlinedInput-notchedOutline': {
+              //     borderColor: '#656567',
+              //   },
+              //   '.MuiSvgIcon-root': {
+              //     color: 'white',
+              //   },
+              // }}
+            >
+              {/* Placeholder item */}
+              <option value="">SI Unit</option>
+
+              {/* Options */}
+              <option value="Kilograms">Kilograms</option>
+              <option value="Litres">Litres</option>
+              <option value="Pieces">Pieces</option>
+            </select>
+          </FormControl>
         </Grid>
-        <Grid item xs={4} marginTop='20px'>
+        <Grid item xs={4} marginTop="20px">
           <TextField
             label="No. of units"
-          
             type="text"
             value={noOfUnits}
             onChange={(e) => setNoOfUnits(e.target.value)}
             fullWidth
             InputProps={{
-              style: { color: 'white' }, // Text color
+              style: { color: "white" }, // Text color
             }}
             InputLabelProps={{
-              style: { color: 'white' }, // Label color
+              style: { color: "white" }, // Label color
             }}
             placeholder="Number of units"
             sx={{
-              '& .MuiOutlinedInput-root': {
-                '& fieldset': {
-                  borderColor: '#656567', // Border color
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#656567", // Border color
                 },
-                '&:hover fieldset': {
-                  borderColor: '#656567', // Border color on hover
+                "&:hover fieldset": {
+                  borderColor: "#656567", // Border color on hover
                 },
               },
-              '& .MuiInputBase-input::placeholder': {
-                color: '#656567', // Placeholder color
+              "& .MuiInputBase-input::placeholder": {
+                color: "#656567", // Placeholder color
               },
             }}
           />
         </Grid>
       </Grid>
-      
-      <Grid container spacing={2} paddingLeft='40px'>
-        <Grid item xs={4} marginTop='20px'>
+
+      <Grid container spacing={2} paddingLeft="40px">
+        <Grid item xs={4} marginTop="20px">
           <TextField
             label="Unit Weight"
             variant="outlined"
@@ -527,28 +566,28 @@ const ProductForm = () => {
             onChange={(e) => setUnitWeight(e.target.value)}
             fullWidth
             InputProps={{
-              style: { color: 'white' }, // Text color
+              style: { color: "white" }, // Text color
             }}
             InputLabelProps={{
-              style: { color: 'white' }, // Label color
+              style: { color: "white" }, // Label color
             }}
             placeholder="Unit Weight"
             sx={{
-              '& .MuiOutlinedInput-root': {
-                '& fieldset': {
-                  borderColor: '#656567', // Border color
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#656567", // Border color
                 },
-                '&:hover fieldset': {
-                  borderColor: '#656567', // Border color on hover
+                "&:hover fieldset": {
+                  borderColor: "#656567", // Border color on hover
                 },
               },
-              '& .MuiInputBase-input::placeholder': {
-                color: 'white', // Placeholder color
+              "& .MuiInputBase-input::placeholder": {
+                color: "white", // Placeholder color
               },
             }}
           />
         </Grid>
-        <Grid item xs={4} marginTop='20px'>
+        <Grid item xs={4} marginTop="20px">
           <TextField
             label="Net Weight"
             variant="outlined"
@@ -558,620 +597,667 @@ const ProductForm = () => {
             onChange={(e) => setNetWeight(e.target.value)}
             fullWidth
             InputProps={{
-              style: { color: 'white' }, // Text color
+              style: { color: "white" }, // Text color
             }}
             InputLabelProps={{
-              style: { color: 'white' }, // Label color
+              style: { color: "white" }, // Label color
             }}
             placeholder="Net Weight"
             sx={{
-              '& .MuiOutlinedInput-root': {
-                '& fieldset': {
-                  borderColor: '#656567', // Border color
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#656567", // Border color
                 },
-                '&:hover fieldset': {
-                  borderColor: '#656567', // Border color on hover
+                "&:hover fieldset": {
+                  borderColor: "#656567", // Border color on hover
                 },
               },
-              '& .MuiInputBase-input::placeholder': {
-                color: 'white', // Placeholder color
+              "& .MuiInputBase-input::placeholder": {
+                color: "white", // Placeholder color
               },
             }}
           />
         </Grid>
-        <Grid item xs={4} marginTop='20px'>
+        <Grid item xs={4} marginTop="20px">
           <TextField
             label="Gross Weight"
-          
             type="text"
             value={grossWeight}
             onChange={(e) => setGrossWeight(e.target.value)}
             fullWidth
             InputProps={{
-              style: { color: 'white' }, // Text color
+              style: { color: "white" }, // Text color
             }}
             InputLabelProps={{
-              style: { color: 'white' }, // Label color
+              style: { color: "white" }, // Label color
             }}
             placeholder="Gross Weight"
             sx={{
-              '& .MuiOutlinedInput-root': {
-                '& fieldset': {
-                  borderColor: '#656567', // Border color
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#656567", // Border color
                 },
-                '&:hover fieldset': {
-                  borderColor: '#656567', // Border color on hover
+                "&:hover fieldset": {
+                  borderColor: "#656567", // Border color on hover
                 },
               },
-              '& .MuiInputBase-input::placeholder': {
-                color: 'white', // Placeholder color
+              "& .MuiInputBase-input::placeholder": {
+                color: "white", // Placeholder color
               },
             }}
           />
         </Grid>
       </Grid>
 
-      <Typography variant="h6" sx={{ color: 'white',display:'flex',justifyItems:'center',marginTop:'40px',paddingLeft:'40px'}}>
-      Nutritional Information(per 100g)
-      </Typography>
-
-      <Grid container spacing={2} paddingLeft='40px'>
-        <Grid item xs={4} marginTop='20px'>
-        <TextField
-        name="calories"
-  label="Calories"
-  variant="outlined"
-  type="text"
-  value={nutrition.calories}
-  onChange={handleNutritionChange}
-  fullWidth
-  InputProps={{
-    style: { color: 'white' }, // Text color
-    endAdornment: (
-      <InputAdornment position="end">
-        <span style={{ color: 'white' }}>[kJ or kCal]</span> {/* Static text */}
-      </InputAdornment>
-    ),
-  }}
-  InputLabelProps={{
-    style: { color: 'white' }, // Label color
-  }}
-  placeholder="Calories"
-  sx={{
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: '#656567', // Border color
-      },
-      '&:hover fieldset': {
-        borderColor: '#656567', // Border color on hover
-      },
-    },
-    '& .MuiInputBase-input::placeholder': {
-      color: 'white', // Placeholder color
-    },
-  }}
-/>
-
-        </Grid>
-        <Grid item xs={4} marginTop='20px'>
-        <TextField
-        name="fat"
-  label="Fats"
-  variant="outlined"
-  type="text"
-  disableUnderline
-  value={nutrition.fat}
-  onChange={handleNutritionChange}
-  fullWidth
-  InputProps={{
-    style: { color: 'white' }, // Text color
-    endAdornment: (
-      <InputAdornment position="end">
-        <span style={{ color: 'white' }}>[g]</span> {/* Static text */}
-      </InputAdornment>
-    ),
-  }}
-  InputLabelProps={{
-    style: { color: 'white' }, // Label color
-  }}
-  placeholder="Fat"
-  sx={{
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: '#656567', // Border color
-      },
-      '&:hover fieldset': {
-        borderColor: '#656567', // Border color on hover
-      },
-    },
-    '& .MuiInputBase-input::placeholder': {
-      color: 'white', // Placeholder color
-    },
-  }}/>
-        </Grid>
-        <Grid item xs={4} marginTop='20px'>
-        <TextField
-        name="saturatedFat"
-  label="Saturated Fat"
-  variant="outlined"
-  type="text"
-  disableUnderline
-  value={nutrition.saturatedFat}
-  onChange={handleNutritionChange}
-  fullWidth
-  InputProps={{
-    style: { color: 'white' }, // Text color
-    endAdornment: (
-      <InputAdornment position="end">
-        <span style={{ color: 'white' }}>[g]</span> {/* Static text */}
-      </InputAdornment>
-    ),
-  }}
-  InputLabelProps={{
-    style: { color: 'white' }, // Label color
-  }}
-  placeholder="Saturated Fat"
-  sx={{
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: '#656567', // Border color
-      },
-      '&:hover fieldset': {
-        borderColor: '#656567', // Border color on hover
-      },
-    },
-    '& .MuiInputBase-input::placeholder': {
-      color: 'white', // Placeholder color
-    },
-  }}/>
-        </Grid>
-      </Grid>
-
-
-      <Grid container spacing={2} paddingLeft='40px'>
-        <Grid item xs={4} marginTop='20px'>
-        <TextField
-        name="carbs"
-  label="Carbs"
-  variant="outlined"
-  type="text"
-  disableUnderline
-  value={nutrition.carbs}
-  onChange={handleNutritionChange}
-  fullWidth
-  InputProps={{
-    style: { color: 'white' }, // Text color
-    endAdornment: (
-      <InputAdornment position="end">
-        <span style={{ color: 'white' }}>[g]</span> {/* Static text */}
-      </InputAdornment>
-    ),
-  }}
-  InputLabelProps={{
-    style: { color: 'white' }, // Label color
-  }}
-  placeholder="Carbs"
-  sx={{
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: '#656567', // Border color
-      },
-      '&:hover fieldset': {
-        borderColor: '#656567', // Border color on hover
-      },
-    },
-    '& .MuiInputBase-input::placeholder': {
-      color: 'white', // Placeholder color
-    },
-  }} />
-        </Grid>
-
-
-        <Grid item xs={4} marginTop='20px'>
-        <TextField
-        name="fibre"
-  label="Fiber"
-  variant="outlined"
-  type="text"
-  disableUnderline
-  value={nutrition.fibre}
-  onChange={handleNutritionChange}
-  fullWidth
-  InputProps={{
-    style: { color: 'white' }, // Text color
-    endAdornment: (
-      <InputAdornment position="end">
-        <span style={{ color: 'white' }}>[g]</span> {/* Static text */}
-      </InputAdornment>
-    ),
-  }}
-  InputLabelProps={{
-    style: { color: 'white' }, // Label color
-  }}
-  placeholder="Fiber"
-  sx={{
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: '#656567', // Border color
-      },
-      '&:hover fieldset': {
-        borderColor: '#656567', // Border color on hover
-      },
-    },
-    '& .MuiInputBase-input::placeholder': {
-      color: 'white', // Placeholder color
-    },
-  }}/>
-        </Grid>
-
-
-        <Grid item xs={4} marginTop='20px'>
-        <TextField
-        name="sugar"
-  label="Sugar"
-  variant="outlined"
-  type="text"
-  disableUnderline
-  value={nutrition.sugar}
-  onChange={handleNutritionChange}
-  fullWidth
-  InputProps={{
-    style: { color: 'white' }, // Text color
-    endAdornment: (
-      <InputAdornment position="end">
-        <span style={{ color: 'white' }}>[g]</span> {/* Static text */}
-      </InputAdornment>
-    ),
-  }}
-  InputLabelProps={{
-    style: { color: 'white' }, // Label color
-  }}
-  placeholder="Sugar"
-  sx={{
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: '#656567', // Border color
-      },
-      '&:hover fieldset': {
-        borderColor: '#656567', // Border color on hover
-      },
-    },
-    '& .MuiInputBase-input::placeholder': {
-      color: 'white', // Placeholder color
-    },
-  }}/>
-        </Grid>
-      </Grid>
-
-
-      <Grid container spacing={2} paddingLeft='40px'>
-        <Grid item xs={4} marginTop='20px'>
-        <TextField
-        name="protein"
-  label="Protein"
-  variant="outlined"
-  type="text"
-  disableUnderline
-  value={nutrition.protein}
-  onChange={handleNutritionChange}
-  fullWidth
-  InputProps={{
-    style: { color: 'white' }, // Text color
-    endAdornment: (
-      <InputAdornment position="end">
-        <span style={{ color: 'white' }}>[g]</span> {/* Static text */}
-      </InputAdornment>
-    ),
-  }}
-  InputLabelProps={{
-    style: { color: 'white' }, // Label color
-  }}
-  placeholder="Protein"
-  sx={{
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: '#656567', // Border color
-      },
-      '&:hover fieldset': {
-        borderColor: '#656567', // Border color on hover
-      },
-    },
-    '& .MuiInputBase-input::placeholder': {
-      color: 'white', // Placeholder color
-    },
-  }}
-          />
-        </Grid>
-        <Grid item xs={4} marginTop='20px'>
-        <TextField
-        name="salt"
-  label="Salt"
-  variant="outlined"
-  type="text"
-  disableUnderline
-  value={nutrition.salt}
-  onChange={handleNutritionChange}
-  fullWidth
-  InputProps={{
-    style: { color: 'white' }, // Text color
-    endAdornment: (
-      <InputAdornment position="end">
-        <span style={{ color: 'white' }}>[g]</span> {/* Static text */}
-      </InputAdornment>
-    ),
-  }}
-  InputLabelProps={{
-    style: { color: 'white' }, // Label color
-  }}
-  placeholder="Salt"
-  sx={{
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: '#656567', // Border color
-      },
-      '&:hover fieldset': {
-        borderColor: '#656567', // Border color on hover
-      },
-    },
-    '& .MuiInputBase-input::placeholder': {
-      color: 'white', // Placeholder color
-    },
-  }}
-          />
-        </Grid>
-      </Grid>
-
-      <Typography variant="h6" color="white" sx={{display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'40px'}}>
-            Ingredients
-          </Typography>
-      <textarea
-              type="text"
-              value={ingredients}
-              onChange={(e) => setIngredients(e.target.value)}
-              style={{
-                display:'flex',
-                alignItems:'flex-start',
-                backgroundColor: "#1A1A1A",
-                color: "white",
-                height: "100px",
-                width: "65%",
-                placeholder: "Type the ingredients here",
-                marginLeft:'40px'
-              }}
-            />
-
-
-          <Typography variant="h6" color="white" sx={{display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'40px'}}>
-            Description
-          </Typography>
-          <textarea
-              type="text"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              style={{
-                display:'flex',
-                alignItems:'flex-start',
-                backgroundColor: "#1A1A1A",
-                color: "white",
-                height: "100px",
-                width: "65%",
-                placeholder: "Type the description here",
-                marginLeft:'40px'
-              }}
-            />
-
-    
-<Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'40px'}}>Additional Information</Typography>
-
-<Grid container spacing={2} paddingLeft='40px'>
-        <Grid item xs={4} marginTop='20px'>
-        <FormControl fullWidth>
-      <Select
-        value={dietary}
-        placeholder="Dietary"
-        onChange={(e) => {
-          setDietary(e.target.value);
-        }}
-        displayEmpty // Ensures that the placeholder is shown when value is empty
+      <Typography
+        variant="h6"
         sx={{
-          color: 'white',
-          '.MuiOutlinedInput-notchedOutline': {
-            borderColor: '#656567',
-          },
-          '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderColor: '#656567',
-          },
-          '.MuiSvgIcon-root': {
-            color: 'white',
-          },
+          color: "white",
+          display: "flex",
+          justifyItems: "center",
+          marginTop: "40px",
+          paddingLeft: "40px",
         }}
       >
-        {/* Placeholder item */}
-        <MenuItem value="">
-          Select Dietary
-        </MenuItem>
+        Nutritional Information(per 100g)
+      </Typography>
 
-        {/* Options */}
-        <MenuItem value={"Vegan"}>Vegan</MenuItem>
-        <MenuItem value={"Vegetarain"}>Vegetarian</MenuItem>
-        <MenuItem value={"Lactose Free"}>Lactose Free</MenuItem>
-        <MenuItem value={"Gluten Free"}>Gluten Free</MenuItem>
-        <MenuItem value={"Non Vegetarian"}>Non Vegetarian</MenuItem>
-      </Select>
-    </FormControl>
+      <Grid container spacing={2} paddingLeft="40px">
+        <Grid item xs={4} marginTop="20px">
+          <TextField
+            name="calories"
+            label="Calories"
+            variant="outlined"
+            type="text"
+            value={nutrition.calories}
+            onChange={handleNutritionChange}
+            fullWidth
+            InputProps={{
+              style: { color: "white" }, // Text color
+              endAdornment: (
+                <InputAdornment position="end">
+                  <span style={{ color: "white" }}>[kJ or kCal]</span>{" "}
+                  {/* Static text */}
+                </InputAdornment>
+              ),
+            }}
+            InputLabelProps={{
+              style: { color: "white" }, // Label color
+            }}
+            placeholder="Calories"
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#656567", // Border color
+                },
+                "&:hover fieldset": {
+                  borderColor: "#656567", // Border color on hover
+                },
+              },
+              "& .MuiInputBase-input::placeholder": {
+                color: "white", // Placeholder color
+              },
+            }}
+          />
+        </Grid>
+        <Grid item xs={4} marginTop="20px">
+          <TextField
+            name="fat"
+            label="Fats"
+            variant="outlined"
+            type="text"
+            disableUnderline
+            value={nutrition.fat}
+            onChange={handleNutritionChange}
+            fullWidth
+            InputProps={{
+              style: { color: "white" }, // Text color
+              endAdornment: (
+                <InputAdornment position="end">
+                  <span style={{ color: "white" }}>[g]</span>{" "}
+                  {/* Static text */}
+                </InputAdornment>
+              ),
+            }}
+            InputLabelProps={{
+              style: { color: "white" }, // Label color
+            }}
+            placeholder="Fat"
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#656567", // Border color
+                },
+                "&:hover fieldset": {
+                  borderColor: "#656567", // Border color on hover
+                },
+              },
+              "& .MuiInputBase-input::placeholder": {
+                color: "white", // Placeholder color
+              },
+            }}
+          />
+        </Grid>
+        <Grid item xs={4} marginTop="20px">
+          <TextField
+            name="saturatedFat"
+            label="Saturated Fat"
+            variant="outlined"
+            type="text"
+            disableUnderline
+            value={nutrition.saturatedFat}
+            onChange={handleNutritionChange}
+            fullWidth
+            InputProps={{
+              style: { color: "white" }, // Text color
+              endAdornment: (
+                <InputAdornment position="end">
+                  <span style={{ color: "white" }}>[g]</span>{" "}
+                  {/* Static text */}
+                </InputAdornment>
+              ),
+            }}
+            InputLabelProps={{
+              style: { color: "white" }, // Label color
+            }}
+            placeholder="Saturated Fat"
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#656567", // Border color
+                },
+                "&:hover fieldset": {
+                  borderColor: "#656567", // Border color on hover
+                },
+              },
+              "& .MuiInputBase-input::placeholder": {
+                color: "white", // Placeholder color
+              },
+            }}
+          />
+        </Grid>
       </Grid>
 
-      <Grid item xs={4} marginTop='20px'>
+      <Grid container spacing={2} paddingLeft="40px">
+        <Grid item xs={4} marginTop="20px">
+          <TextField
+            name="carbs"
+            label="Carbs"
+            variant="outlined"
+            type="text"
+            disableUnderline
+            value={nutrition.carbs}
+            onChange={handleNutritionChange}
+            fullWidth
+            InputProps={{
+              style: { color: "white" }, // Text color
+              endAdornment: (
+                <InputAdornment position="end">
+                  <span style={{ color: "white" }}>[g]</span>{" "}
+                  {/* Static text */}
+                </InputAdornment>
+              ),
+            }}
+            InputLabelProps={{
+              style: { color: "white" }, // Label color
+            }}
+            placeholder="Carbs"
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#656567", // Border color
+                },
+                "&:hover fieldset": {
+                  borderColor: "#656567", // Border color on hover
+                },
+              },
+              "& .MuiInputBase-input::placeholder": {
+                color: "white", // Placeholder color
+              },
+            }}
+          />
+        </Grid>
+
+        <Grid item xs={4} marginTop="20px">
+          <TextField
+            name="fibre"
+            label="Fiber"
+            variant="outlined"
+            type="text"
+            disableUnderline
+            value={nutrition.fibre}
+            onChange={handleNutritionChange}
+            fullWidth
+            InputProps={{
+              style: { color: "white" }, // Text color
+              endAdornment: (
+                <InputAdornment position="end">
+                  <span style={{ color: "white" }}>[g]</span>{" "}
+                  {/* Static text */}
+                </InputAdornment>
+              ),
+            }}
+            InputLabelProps={{
+              style: { color: "white" }, // Label color
+            }}
+            placeholder="Fiber"
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#656567", // Border color
+                },
+                "&:hover fieldset": {
+                  borderColor: "#656567", // Border color on hover
+                },
+              },
+              "& .MuiInputBase-input::placeholder": {
+                color: "white", // Placeholder color
+              },
+            }}
+          />
+        </Grid>
+
+        <Grid item xs={4} marginTop="20px">
+          <TextField
+            name="sugar"
+            label="Sugar"
+            variant="outlined"
+            type="text"
+            disableUnderline
+            value={nutrition.sugar}
+            onChange={handleNutritionChange}
+            fullWidth
+            InputProps={{
+              style: { color: "white" }, // Text color
+              endAdornment: (
+                <InputAdornment position="end">
+                  <span style={{ color: "white" }}>[g]</span>{" "}
+                  {/* Static text */}
+                </InputAdornment>
+              ),
+            }}
+            InputLabelProps={{
+              style: { color: "white" }, // Label color
+            }}
+            placeholder="Sugar"
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#656567", // Border color
+                },
+                "&:hover fieldset": {
+                  borderColor: "#656567", // Border color on hover
+                },
+              },
+              "& .MuiInputBase-input::placeholder": {
+                color: "white", // Placeholder color
+              },
+            }}
+          />
+        </Grid>
+      </Grid>
+
+      <Grid container spacing={2} paddingLeft="40px">
+        <Grid item xs={4} marginTop="20px">
+          <TextField
+            name="protein"
+            label="Protein"
+            variant="outlined"
+            type="text"
+            disableUnderline
+            value={nutrition.protein}
+            onChange={handleNutritionChange}
+            fullWidth
+            InputProps={{
+              style: { color: "white" }, // Text color
+              endAdornment: (
+                <InputAdornment position="end">
+                  <span style={{ color: "white" }}>[g]</span>{" "}
+                  {/* Static text */}
+                </InputAdornment>
+              ),
+            }}
+            InputLabelProps={{
+              style: { color: "white" }, // Label color
+            }}
+            placeholder="Protein"
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#656567", // Border color
+                },
+                "&:hover fieldset": {
+                  borderColor: "#656567", // Border color on hover
+                },
+              },
+              "& .MuiInputBase-input::placeholder": {
+                color: "white", // Placeholder color
+              },
+            }}
+          />
+        </Grid>
+        <Grid item xs={4} marginTop="20px">
+          <TextField
+            name="salt"
+            label="Salt"
+            variant="outlined"
+            type="text"
+            disableUnderline
+            value={nutrition.salt}
+            onChange={handleNutritionChange}
+            fullWidth
+            InputProps={{
+              style: { color: "white" }, // Text color
+              endAdornment: (
+                <InputAdornment position="end">
+                  <span style={{ color: "white" }}>[g]</span>{" "}
+                  {/* Static text */}
+                </InputAdornment>
+              ),
+            }}
+            InputLabelProps={{
+              style: { color: "white" }, // Label color
+            }}
+            placeholder="Salt"
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#656567", // Border color
+                },
+                "&:hover fieldset": {
+                  borderColor: "#656567", // Border color on hover
+                },
+              },
+              "& .MuiInputBase-input::placeholder": {
+                color: "white", // Placeholder color
+              },
+            }}
+          />
+        </Grid>
+      </Grid>
+
+      <Typography
+        variant="h6"
+        color="white"
+        sx={{
+          display: "flex",
+          alignItems: "flex-start",
+          marginTop: "40px",
+          paddingLeft: "40px",
+        }}
+      >
+        Ingredients
+      </Typography>
+      <textarea
+        type="text"
+        value={ingredients}
+        onChange={(e) => setIngredients(e.target.value)}
+        style={{
+          display: "flex",
+          alignItems: "flex-start",
+          backgroundColor: "#1A1A1A",
+          color: "white",
+          height: "100px",
+          width: "65%",
+          placeholder: "Type the ingredients here",
+          marginLeft: "40px",
+        }}
+      />
+
+      <Typography
+        variant="h6"
+        color="white"
+        sx={{
+          display: "flex",
+          alignItems: "flex-start",
+          marginTop: "40px",
+          paddingLeft: "40px",
+        }}
+      >
+        Description
+      </Typography>
+      <textarea
+        type="text"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        style={{
+          display: "flex",
+          alignItems: "flex-start",
+          backgroundColor: "#1A1A1A",
+          color: "white",
+          height: "100px",
+          width: "65%",
+          placeholder: "Type the description here",
+          marginLeft: "40px",
+        }}
+      />
+
+      <Typography
+        variant="h6"
+        sx={{
+          color: "white",
+          display: "flex",
+          alignItems: "flex-start",
+          marginTop: "40px",
+          paddingLeft: "40px",
+        }}
+      >
+        Additional Information
+      </Typography>
+
+      <Grid container spacing={2} paddingLeft="40px">
+        <Grid item xs={4} marginTop="20px">
+          <FormControl fullWidth>
+            <Select
+              value={dietary}
+              placeholder="Dietary"
+              onChange={(e) => {
+                setDietary(e.target.value);
+              }}
+              displayEmpty // Ensures that the placeholder is shown when value is empty
+              sx={{
+                color: "white",
+                ".MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#656567",
+                },
+                "&:hover .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#656567",
+                },
+                ".MuiSvgIcon-root": {
+                  color: "white",
+                },
+              }}
+            >
+              {/* Placeholder item */}
+              <MenuItem value="">Select Dietary</MenuItem>
+
+              {/* Options */}
+              <MenuItem value={"Vegan"}>Vegan</MenuItem>
+              <MenuItem value={"Vegetarain"}>Vegetarian</MenuItem>
+              <MenuItem value={"Lactose Free"}>Lactose Free</MenuItem>
+              <MenuItem value={"Gluten Free"}>Gluten Free</MenuItem>
+              <MenuItem value={"Non Vegetarian"}>Non Vegetarian</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+
+        <Grid item xs={4} marginTop="20px">
           <TextField
             label="Storage Conditions"
-          
             type="text"
             value={storage}
             onChange={(e) => setStorage(e.target.value)}
             fullWidth
             InputProps={{
-              style: { color: 'white' }, // Text color
+              style: { color: "white" }, // Text color
             }}
             InputLabelProps={{
-              style: { color: 'white' }, // Label color
+              style: { color: "white" }, // Label color
             }}
             placeholder="Storage Conditions"
             sx={{
-              '& .MuiOutlinedInput-root': {
-                '& fieldset': {
-                  borderColor: '#656567', // Border color
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#656567", // Border color
                 },
-                '&:hover fieldset': {
-                  borderColor: '#656567', // Border color on hover
+                "&:hover fieldset": {
+                  borderColor: "#656567", // Border color on hover
                 },
               },
-              '& .MuiInputBase-input::placeholder': {
-                color: 'white', // Placeholder color
+              "& .MuiInputBase-input::placeholder": {
+                color: "white", // Placeholder color
               },
             }}
           />
         </Grid>
 
-        <Grid item xs={4} marginTop='20px'>
-          
+        <Grid item xs={4} marginTop="20px">
           <FormControl fullWidth>
-  <Select
-    value={origin}
-    onChange={(e) => {
-      setOrigin(e.target.value);
-    }}
-    displayEmpty // This will allow showing the placeholder when the value is empty
-    sx={{
-      color: 'white',
-      '.MuiOutlinedInput-notchedOutline': {
-        borderColor: '#656567',
-      },
-      '&:hover .MuiOutlinedInput-notchedOutline': {
-        borderColor: '#656567',
-      },
-      '.MuiSvgIcon-root': {
-        color: 'white',
-      },
-    }}
-  >
-    {/* Placeholder item */}
-    <MenuItem value="">
-      Select Origin
-    </MenuItem>
+            <Select
+              value={origin}
+              onChange={(e) => {
+                setOrigin(e.target.value);
+              }}
+              displayEmpty // This will allow showing the placeholder when the value is empty
+              sx={{
+                color: "white",
+                ".MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#656567",
+                },
+                "&:hover .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#656567",
+                },
+                ".MuiSvgIcon-root": {
+                  color: "white",
+                },
+              }}
+            >
+              {/* Placeholder item */}
+              <MenuItem value="">Select Origin</MenuItem>
 
-    {countries.map((country, index) => (
+              {countries.map((country, index) => (
                 <MenuItem key={index} value={country}>
                   {country}
                 </MenuItem>
               ))}
-  </Select>
-</FormControl>
-
-        </Grid>
-      
-
-      </Grid>
-
-
-      <Grid container spacing={2} paddingLeft='40px'>
-        <Grid item xs={4} marginTop='20px'>
-        <TextField
-  label="Product Id Prefix"
-  variant="outlined"
-  type="text"
-  disableUnderline
-  value={productIdPrefix}
-  readOnly
-  fullWidth
-  InputProps={{
-    style: { color: 'white' }, // Text color
-    
-  }}
-  InputLabelProps={{
-    style: { color: 'white' }, // Label color
-  }}
-  placeholder="Product Id Prefix"
-  sx={{
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: '#656567', // Border color
-      },
-      '&:hover fieldset': {
-        borderColor: '#656567', // Border color on hover
-      },
-    },
-    '& .MuiInputBase-input::placeholder': {
-      color: 'white', // Placeholder color
-    },
-  }}
-          />
-        </Grid>
-        <Grid item xs={4} marginTop='20px'>
-        <TextField
-  label="Added By"
-  variant="outlined"
-  type="text"
-  value={data.info.name}
-  readOnly
-  fullWidth
-  InputProps={{
-    style: { color: 'white' }, // Text color
-    
-  }}
-  InputLabelProps={{
-    style: { color: 'white' }, // Label color
-  }}
-  placeholder="Salt"
-  sx={{
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderColor: '#656567', // Border color
-      },
-      '&:hover fieldset': {
-        borderColor: '#656567', // Border color on hover
-      },
-    },
-    '& .MuiInputBase-input::placeholder': {
-      color: 'white', // Placeholder color
-    },
-  }}
-          />
+            </Select>
+          </FormControl>
         </Grid>
       </Grid>
 
-      <Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'40px'}}>Attachments</Typography>
-          <Button
-            component="label"
-            variant="contained"
-            borderRadius={1}
-            border="1px solid"
-            bgcolor="neutral.800"
-            borderColor="neutral.800"
-            height="50px"
-            sx={{
-              backgroundColor: "#1A1A1A",
-              color: "white",
-              marginTop:'10px',
-              marginRight:'1050px',
-              paddingLeft:'30px',
-              "&:hover": {
-                backgroundColor: "#1A1A1A", // Prevent color change on hover
-                boxShadow: "none",           // Prevent shadow on hover
-              }
+      <Grid container spacing={2} paddingLeft="40px">
+        <Grid item xs={4} marginTop="20px">
+          <TextField
+            label="Product Id Prefix"
+            variant="outlined"
+            type="text"
+            disableUnderline
+            value={productIdPrefix}
+            readOnly
+            fullWidth
+            InputProps={{
+              style: { color: "white" }, // Text color
             }}
-          >
-            Upload
-            <VisuallyHiddenInput
-              type="file"
-              multiple
-              onChange={handleFileChange}
-              name="uploadImage"
-            />
-          </Button>
-      
-      
+            InputLabelProps={{
+              style: { color: "white" }, // Label color
+            }}
+            placeholder="Product Id Prefix"
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#656567", // Border color
+                },
+                "&:hover fieldset": {
+                  borderColor: "#656567", // Border color on hover
+                },
+              },
+              "& .MuiInputBase-input::placeholder": {
+                color: "white", // Placeholder color
+              },
+            }}
+          />
+        </Grid>
+        <Grid item xs={4} marginTop="20px">
+          <TextField
+            label="Added By"
+            variant="outlined"
+            type="text"
+            value={data.info.name}
+            readOnly
+            fullWidth
+            InputProps={{
+              style: { color: "white" }, // Text color
+            }}
+            InputLabelProps={{
+              style: { color: "white" }, // Label color
+            }}
+            placeholder="Salt"
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "& fieldset": {
+                  borderColor: "#656567", // Border color
+                },
+                "&:hover fieldset": {
+                  borderColor: "#656567", // Border color on hover
+                },
+              },
+              "& .MuiInputBase-input::placeholder": {
+                color: "white", // Placeholder color
+              },
+            }}
+          />
+        </Grid>
+      </Grid>
 
-      <Box display="flex" paddingLeft='30px' flexWrap="wrap" gap={2} width="100%" mt={2}>
+      <Typography
+        variant="h6"
+        sx={{
+          color: "white",
+          display: "flex",
+          alignItems: "flex-start",
+          marginTop: "40px",
+          paddingLeft: "40px",
+        }}
+      >
+        Attachments
+      </Typography>
+      <Button
+        component="label"
+        variant="contained"
+        borderRadius={1}
+        border="1px solid"
+        bgcolor="neutral.800"
+        borderColor="neutral.800"
+        height="50px"
+        sx={{
+          backgroundColor: "#1A1A1A",
+          color: "white",
+          marginTop: "10px",
+          marginRight: "1050px",
+          paddingLeft: "30px",
+          "&:hover": {
+            backgroundColor: "#1A1A1A", // Prevent color change on hover
+            boxShadow: "none", // Prevent shadow on hover
+          },
+        }}
+      >
+        Upload
+        <VisuallyHiddenInput
+          type="file"
+          multiple
+          onChange={handleFileChange}
+          name="uploadImage"
+        />
+      </Button>
+
+      <Box
+        display="flex"
+        paddingLeft="30px"
+        flexWrap="wrap"
+        gap={2}
+        width="100%"
+        mt={2}
+      >
         {files.map((file, index) => (
           <Box key={index} position="relative">
             <img
@@ -1200,12 +1286,7 @@ const ProductForm = () => {
         ))}
       </Box>
 
-      <Grid
-        container
-      
-        rowSpacing={1}
-        columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-      >
+      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item sx={4}>
           <Button
             variant="contained"
@@ -1223,7 +1304,11 @@ const ProductForm = () => {
           <Button
             variant="contained"
             onClick={handleSubmit}
-            style={{ backgroundColor: "greenyellow", color: "black", marginBottom: "20px" }}
+            style={{
+              backgroundColor: "greenyellow",
+              color: "black",
+              marginBottom: "20px",
+            }}
           >
             Submit
           </Button>

@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import axios from "axios";
@@ -32,10 +30,10 @@ import {
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import { countries, productData } from "./Categories";
-const ProductTable = ({username}) => {
+const ProductTable = ({ username }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [openEditModal, setOpenEditModal] = useState(false); 
+  const [openEditModal, setOpenEditModal] = useState(false);
   // const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedSuperCategory, setSelectedSuperCategory] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -50,7 +48,7 @@ const ProductTable = ({username}) => {
   const [selectedImages, setSelectedImages] = useState([]);
   const [loggedInUser, setLoggedInUser] = useState("");
   const [existing, setExisting] = useState([]);
-   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
   const handleDrawerOpen = (product) => {
@@ -61,8 +59,7 @@ const ProductTable = ({username}) => {
   const handleDrawerClose = () => {
     setDrawerOpen(false);
     setSelectedProduct(null);
-  }
-
+  };
 
   const handleCountryChange = (event) => {
     setSelectedCountry(event.target.value);
@@ -143,7 +140,6 @@ const ProductTable = ({username}) => {
     try {
       await axios.delete(
         `http://localhost:8000/api/v1/deleteProduct/${productId}`
-        
       );
       setProducts(products.filter((product) => product._id !== productId));
       alert("Deleted successfully");
@@ -154,10 +150,10 @@ const ProductTable = ({username}) => {
 
   // Handle Edit click
   const handleEdit = (product) => {
-    setSelectedProduct(product); 
+    setSelectedProduct(product);
     setExisting(product.uploadImage);
     setLoggedInUser(username);
-    setOpenEditModal(true); 
+    setOpenEditModal(true);
   };
 
   useEffect(() => {
@@ -174,7 +170,7 @@ const ProductTable = ({username}) => {
     });
   };
 
-    const createFormData = () => {
+  const createFormData = () => {
     const formData = new FormData();
 
     // Append all product fields
@@ -219,17 +215,16 @@ const ProductTable = ({username}) => {
     return formData;
   };
 
-
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files); // Convert file list to array
     setSelectedImages((prevImages) => [...prevImages, ...files]);
   };
-  
+
   const removeImage = (index) => {
     const updatedImages = selectedImages.filter((_, i) => i !== index);
     const imageToDelete = existing[index]; // Get the image to delete
     const updatedExisting = existing.filter((_, i) => i !== index);
-  
+
     // Call the API to remove the image from the backend
     fetch(`http://localhost:8000/api/v1/deleteImage/${selectedProduct._id}`, {
       method: "DELETE",
@@ -251,11 +246,11 @@ const ProductTable = ({username}) => {
         console.error("An error occurred while deleting the image:", error);
       });
   };
-  
+
   const handleUpdate = async () => {
     try {
       const formData = createFormData(); // Get the FormData
-  
+
       // Send the PUT request with FormData
       const response = await axios.put(
         `http://localhost:8000/api/v1/updateProduct/${selectedProduct._id}`, // Use backticks for interpolation
@@ -266,7 +261,7 @@ const ProductTable = ({username}) => {
           },
         }
       );
-  
+
       console.log(response.data);
       alert("Product updated successfully");
       setSelectedImages([]);
@@ -277,25 +272,41 @@ const ProductTable = ({username}) => {
       console.error("Error updating product:", error);
     }
   };
-  
 
   return (
     <>
-      <Box sx={{width:'200vh',overflow:'auto',backgroundColor:'#262626',margin: '30px 0px 0px 40px'}}>
-        <Typography variant="h4" sx={{display:'flex',alignItems:'flex-start',color:'white',padding:'20px'}}>Product Database</Typography>
+      <Box
+        sx={{
+          width: "200vh",
+          overflow: "auto",
+          backgroundColor: "#262626",
+          margin: "30px 0px 0px 40px",
+        }}
+      >
+        <Typography
+          variant="h4"
+          sx={{
+            display: "flex",
+            alignItems: "flex-start",
+            color: "white",
+            padding: "20px",
+          }}
+        >
+          Product Database
+        </Typography>
       </Box>
       <TableContainer
         sx={{
-          maxHeight: '80vh',
-          width: '200vh',
-          marginBottom:'30px',
-          marginLeft:'40px',
-          overflow: 'auto',
-          '&::-webkit-scrollbar': {
-            display: 'none',
+          maxHeight: "80vh",
+          width: "200vh",
+          marginBottom: "30px",
+          marginLeft: "40px",
+          overflow: "auto",
+          "&::-webkit-scrollbar": {
+            display: "none",
           },
-          '-ms-overflow-style': 'none',
-          'scrollbar-width': 'none',
+          "-ms-overflow-style": "none",
+          "scrollbar-width": "none",
         }}
         component={Paper}
       >
@@ -303,40 +314,154 @@ const ProductTable = ({username}) => {
           <TableHead>
             <TableRow>
               {/* Display only the first 6 columns */}
-              <TableCell sx={{ backgroundColor: "greenyellow", color: "black", borderLeft: "1px solid black" }}>Product Id</TableCell>
-              <TableCell sx={{ backgroundColor: "greenyellow", color: "black", borderLeft: "1px solid black" }}>Product Name</TableCell>
-              <TableCell sx={{ backgroundColor: "greenyellow", color: "black", borderLeft: "1px solid black" }}>Product Brand</TableCell>
-              <TableCell sx={{ backgroundColor: "greenyellow", color: "black", borderLeft: "1px solid black" }}>Super Category</TableCell>
-              <TableCell sx={{ backgroundColor: "greenyellow", color: "black", borderLeft: "1px solid black" }}>Category</TableCell>
-              <TableCell sx={{ backgroundColor: "greenyellow", color: "black", borderLeft: "1px solid black" }}>Subcategory</TableCell>
-              <TableCell sx={{ backgroundColor: "greenyellow", color: "black", borderLeft: "1px solid black" }}>Actions</TableCell>
+              <TableCell
+                sx={{
+                  backgroundColor: "greenyellow",
+                  color: "black",
+                  borderLeft: "1px solid black",
+                }}
+              >
+                Product Id
+              </TableCell>
+              <TableCell
+                sx={{
+                  backgroundColor: "greenyellow",
+                  color: "black",
+                  borderLeft: "1px solid black",
+                }}
+              >
+                Product Name
+              </TableCell>
+              <TableCell
+                sx={{
+                  backgroundColor: "greenyellow",
+                  color: "black",
+                  borderLeft: "1px solid black",
+                }}
+              >
+                Product Brand
+              </TableCell>
+              <TableCell
+                sx={{
+                  backgroundColor: "greenyellow",
+                  color: "black",
+                  borderLeft: "1px solid black",
+                }}
+              >
+                Super Category
+              </TableCell>
+              <TableCell
+                sx={{
+                  backgroundColor: "greenyellow",
+                  color: "black",
+                  borderLeft: "1px solid black",
+                }}
+              >
+                Category
+              </TableCell>
+              <TableCell
+                sx={{
+                  backgroundColor: "greenyellow",
+                  color: "black",
+                  borderLeft: "1px solid black",
+                }}
+              >
+                Subcategory
+              </TableCell>
+              <TableCell
+                sx={{
+                  backgroundColor: "greenyellow",
+                  color: "black",
+                  borderLeft: "1px solid black",
+                }}
+              >
+                Actions
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {loading ? (
               <TableRow>
-                <TableCell colSpan={7} sx={{ backgroundColor: "#333", color: "white" }}>
+                <TableCell
+                  colSpan={7}
+                  sx={{ backgroundColor: "#333", color: "white" }}
+                >
                   Loading...
                 </TableCell>
               </TableRow>
             ) : products.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={7} sx={{ backgroundColor: "#333", color: "white" }}>
+                <TableCell
+                  colSpan={7}
+                  sx={{ backgroundColor: "#333", color: "white" }}
+                >
                   No products found.
                 </TableCell>
               </TableRow>
             ) : (
               products.map((product, index) => (
                 <TableRow key={product._id}>
-                  <TableCell sx={{ color: "white", backgroundColor: "#262626", borderLeft: "1px solid black" }}>
+                  <TableCell
+                    sx={{
+                      color: "white",
+                      backgroundColor: "#262626",
+                      borderLeft: "1px solid black",
+                    }}
+                  >
                     {String(index + 1).padStart(6, "0")}
                   </TableCell>
-                  <TableCell sx={{ color: "white", backgroundColor: "#262626", borderLeft: "1px solid black" }}>{product.productName}</TableCell>
-                  <TableCell sx={{ color: "white", backgroundColor: "#262626", borderLeft: "1px solid black" }}>{product.productBrand}</TableCell>
-                  <TableCell sx={{ color: "white", backgroundColor: "#262626", borderLeft: "1px solid black" }}>{product.superCategory}</TableCell>
-                  <TableCell sx={{ color: "white", backgroundColor: "#262626", borderLeft: "1px solid black" }}>{product.category}</TableCell>
-                  <TableCell sx={{ color: "white", backgroundColor: "#262626", borderLeft: "1px solid black" }}>{product.subCategory}</TableCell>
-                  <TableCell sx={{ color: "white", backgroundColor: "#262626", borderLeft: "1px solid black" }}>
+                  <TableCell
+                    sx={{
+                      color: "white",
+                      backgroundColor: "#262626",
+                      borderLeft: "1px solid black",
+                    }}
+                  >
+                    {product.productName}
+                  </TableCell>
+                  <TableCell
+                    sx={{
+                      color: "white",
+                      backgroundColor: "#262626",
+                      borderLeft: "1px solid black",
+                    }}
+                  >
+                    {product.productBrand}
+                  </TableCell>
+                  <TableCell
+                    sx={{
+                      color: "white",
+                      backgroundColor: "#262626",
+                      borderLeft: "1px solid black",
+                    }}
+                  >
+                    {product.superCategory}
+                  </TableCell>
+                  <TableCell
+                    sx={{
+                      color: "white",
+                      backgroundColor: "#262626",
+                      borderLeft: "1px solid black",
+                    }}
+                  >
+                    {product.category}
+                  </TableCell>
+                  <TableCell
+                    sx={{
+                      color: "white",
+                      backgroundColor: "#262626",
+                      borderLeft: "1px solid black",
+                    }}
+                  >
+                    {product.subCategory}
+                  </TableCell>
+                  <TableCell
+                    sx={{
+                      color: "white",
+                      backgroundColor: "#262626",
+                      borderLeft: "1px solid black",
+                    }}
+                  >
                     <IconButton onClick={() => handleDrawerOpen(product)}>
                       <VisibilityIcon style={{ color: "lightblue" }} />
                     </IconButton>
@@ -344,7 +469,6 @@ const ProductTable = ({username}) => {
                       aria-label="edit"
                       color="inherit"
                       onClick={() => handleEdit(product)}
-
                     >
                       <EditIcon />
                     </IconButton>
@@ -365,46 +489,98 @@ const ProductTable = ({username}) => {
 
       {/* Drawer component to show more details */}
       <Drawer anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>
-        <Box sx={{ width: '500px', padding: '20px' }}>
+        <Box sx={{ width: "500px", padding: "20px" }}>
           {selectedProduct && (
             <>
               <Typography variant="h6" gutterBottom>
                 Product Details
               </Typography>
-              <Typography><strong>Product Name:</strong> {selectedProduct.productName}</Typography>
-              <Typography><strong>Product Brand:</strong> {selectedProduct.productBrand}</Typography>
-              <Typography><strong>Super Category:</strong> {selectedProduct.superCategory}</Typography>
-              <Typography><strong>Category:</strong> {selectedProduct.category}</Typography>
-              <Typography><strong>Subcategory:</strong> {selectedProduct.subCategory}</Typography>
-              <Typography><strong>No. of Units:</strong> {selectedProduct.numberOfUnits}</Typography>
-              <Typography><strong>Unit Weight:</strong> {selectedProduct.unitWeight}</Typography>
-              <Typography><strong>Net Weight:</strong> {selectedProduct.netWeight}</Typography>
-              <Typography><strong>Gross Weight:</strong> {selectedProduct.grossWeight}</Typography>
-              <Typography><strong>Origin:</strong> {selectedProduct.origin}</Typography>
-              <Typography><strong>Added By:</strong> {selectedProduct.addedBy}</Typography>
-              <Typography><strong>Calories:</strong> {selectedProduct.calories}</Typography>
-              <Typography><strong>Fat:</strong> {selectedProduct.fat}</Typography>
-              <Typography><strong>Saturated Fat:</strong> {selectedProduct.saturatedFat}</Typography>
-              <Typography><strong>Carbs:</strong> {selectedProduct.carbs}</Typography>
-              <Typography><strong>Fibre:</strong> {selectedProduct.fibre}</Typography>
-              <Typography><strong>Sugar:</strong> {selectedProduct.sugar}</Typography>
-              <Typography><strong>Protein:</strong> {selectedProduct.protein}</Typography>
-              <Typography><strong>Salt:</strong> {selectedProduct.salt}</Typography>
-              <Typography><strong>Ingredients:</strong> {selectedProduct.ingredients}</Typography>
-              <Typography><strong>Description:</strong> {selectedProduct.productDescription}</Typography>
-              <Typography><strong>Origin:</strong> {selectedProduct.origin}</Typography>
-              <Typography><strong>Added By:</strong> {selectedProduct.addedBy}</Typography>
+              <Typography>
+                <strong>Product Name:</strong> {selectedProduct.productName}
+              </Typography>
+              <Typography>
+                <strong>Product Brand:</strong> {selectedProduct.productBrand}
+              </Typography>
+              <Typography>
+                <strong>Super Category:</strong> {selectedProduct.superCategory}
+              </Typography>
+              <Typography>
+                <strong>Category:</strong> {selectedProduct.category}
+              </Typography>
+              <Typography>
+                <strong>Subcategory:</strong> {selectedProduct.subCategory}
+              </Typography>
+              <Typography>
+                <strong>No. of Units:</strong> {selectedProduct.numberOfUnits}
+              </Typography>
+              <Typography>
+                <strong>Unit Weight:</strong> {selectedProduct.unitWeight}
+              </Typography>
+              <Typography>
+                <strong>Net Weight:</strong> {selectedProduct.netWeight}
+              </Typography>
+              <Typography>
+                <strong>Gross Weight:</strong> {selectedProduct.grossWeight}
+              </Typography>
+              <Typography>
+                <strong>Origin:</strong> {selectedProduct.origin}
+              </Typography>
+              <Typography>
+                <strong>Added By:</strong> {selectedProduct.addedBy}
+              </Typography>
+              <Typography>
+                <strong>Calories:</strong> {selectedProduct.calories}
+              </Typography>
+              <Typography>
+                <strong>Fat:</strong> {selectedProduct.fat}
+              </Typography>
+              <Typography>
+                <strong>Saturated Fat:</strong> {selectedProduct.saturatedFat}
+              </Typography>
+              <Typography>
+                <strong>Carbs:</strong> {selectedProduct.carbs}
+              </Typography>
+              <Typography>
+                <strong>Fibre:</strong> {selectedProduct.fibre}
+              </Typography>
+              <Typography>
+                <strong>Sugar:</strong> {selectedProduct.sugar}
+              </Typography>
+              <Typography>
+                <strong>Protein:</strong> {selectedProduct.protein}
+              </Typography>
+              <Typography>
+                <strong>Salt:</strong> {selectedProduct.salt}
+              </Typography>
+              <Typography>
+                <strong>Ingredients:</strong> {selectedProduct.ingredients}
+              </Typography>
+              <Typography>
+                <strong>Description:</strong>{" "}
+                {selectedProduct.productDescription}
+              </Typography>
+              <Typography>
+                <strong>Origin:</strong> {selectedProduct.origin}
+              </Typography>
+              <Typography>
+                <strong>Added By:</strong> {selectedProduct.addedBy}
+              </Typography>
               {/* Render other data */}
               <Box>
                 <strong>Images:</strong>
-                {selectedProduct.uploadImage && selectedProduct.uploadImage.length > 0 ? (
+                {selectedProduct.uploadImage &&
+                selectedProduct.uploadImage.length > 0 ? (
                   <Grid container spacing={1}>
                     {selectedProduct.uploadImage.map((image, index) => (
                       <Grid item xs={6} key={index}>
                         <img
                           src={image}
                           alt={`Product Image ${index}`}
-                          style={{ width: '100%', height: '100px', objectFit: 'cover' }}
+                          style={{
+                            width: "100%",
+                            height: "100px",
+                            objectFit: "cover",
+                          }}
                         />
                       </Grid>
                     ))}
@@ -417,7 +593,6 @@ const ProductTable = ({username}) => {
           )}
         </Box>
       </Drawer>
-
 
       {/* Edit Product Modal */}
       <Dialog open={openEditModal} onClose={() => setOpenEditModal(false)}>
@@ -568,7 +743,9 @@ const ProductTable = ({username}) => {
                 value={selectedProduct.calories}
                 onChange={handleChange}
                 InputProps={{
-                  endAdornment: <InputAdornment position="end">j</InputAdornment>,
+                  endAdornment: (
+                    <InputAdornment position="end">j</InputAdornment>
+                  ),
                 }}
               />
               <TextField
@@ -579,7 +756,9 @@ const ProductTable = ({username}) => {
                 value={selectedProduct.fat}
                 onChange={handleChange}
                 InputProps={{
-                  endAdornment: <InputAdornment position="end">g</InputAdornment>,
+                  endAdornment: (
+                    <InputAdornment position="end">g</InputAdornment>
+                  ),
                 }}
               />
               <TextField
@@ -590,7 +769,9 @@ const ProductTable = ({username}) => {
                 value={selectedProduct.saturatedFat}
                 onChange={handleChange}
                 InputProps={{
-                  endAdornment: <InputAdornment position="end">g</InputAdornment>,
+                  endAdornment: (
+                    <InputAdornment position="end">g</InputAdornment>
+                  ),
                 }}
               />
               <TextField
@@ -601,7 +782,9 @@ const ProductTable = ({username}) => {
                 value={selectedProduct.carbs}
                 onChange={handleChange}
                 InputProps={{
-                  endAdornment: <InputAdornment position="end">g</InputAdornment>,
+                  endAdornment: (
+                    <InputAdornment position="end">g</InputAdornment>
+                  ),
                 }}
               />
 
@@ -613,7 +796,9 @@ const ProductTable = ({username}) => {
                 value={selectedProduct.fibre}
                 onChange={handleChange}
                 InputProps={{
-                  endAdornment: <InputAdornment position="end">g</InputAdornment>,
+                  endAdornment: (
+                    <InputAdornment position="end">g</InputAdornment>
+                  ),
                 }}
               />
 
@@ -625,7 +810,9 @@ const ProductTable = ({username}) => {
                 value={selectedProduct.sugar}
                 onChange={handleChange}
                 InputProps={{
-                  endAdornment: <InputAdornment position="end">g</InputAdornment>,
+                  endAdornment: (
+                    <InputAdornment position="end">g</InputAdornment>
+                  ),
                 }}
               />
 
@@ -637,7 +824,9 @@ const ProductTable = ({username}) => {
                 value={selectedProduct.protein}
                 onChange={handleChange}
                 InputProps={{
-                  endAdornment: <InputAdornment position="end">g</InputAdornment>,
+                  endAdornment: (
+                    <InputAdornment position="end">g</InputAdornment>
+                  ),
                 }}
               />
 
@@ -649,7 +838,9 @@ const ProductTable = ({username}) => {
                 value={selectedProduct.salt}
                 onChange={handleChange}
                 InputProps={{
-                  endAdornment: <InputAdornment position="end">g</InputAdornment>,
+                  endAdornment: (
+                    <InputAdornment position="end">g</InputAdornment>
+                  ),
                 }}
               />
 
