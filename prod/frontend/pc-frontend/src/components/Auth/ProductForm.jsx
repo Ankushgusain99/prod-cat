@@ -272,7 +272,7 @@ const ProductForm = () => {
           sx={{
             display: "flex",
             alignItems: "flex-start",
-            paddingLeft: "150px",
+            paddingLeft: "120px",
           }}
         >
           Welcome to the RE-Search project
@@ -281,7 +281,7 @@ const ProductForm = () => {
           sx={{
             display: "flex",
             alignItems: "flex-start",
-            paddingLeft: "150px",
+            paddingLeft: "120px",
           }}
         >
           Your work contributes to the world's largest Asian grocery database in
