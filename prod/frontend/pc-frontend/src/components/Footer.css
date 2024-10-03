@@ -2,6 +2,7 @@
 .footer {
     background-color: var(--card-background-color-dark);
     border-top: 1px solid #262626;
+    padding-left: 30px;
 }
 
 .footer__container {

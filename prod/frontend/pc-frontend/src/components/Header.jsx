@@ -118,7 +118,7 @@ function Header({ username,role }) {
           </div>
         </div>
       </header>
-      <div className="drawer">
+      <div className="drawer" >
       {role !== 'user' && <LeftDrawer />}
       
       </div>

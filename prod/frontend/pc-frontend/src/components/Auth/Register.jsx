@@ -78,6 +78,8 @@ const Register = () => {
         height="80vh"
         backgroundColor="1A1A1A"
         paddingBottom='60px'
+        
+
       >
         {/* Left Side - Form */}
         <Box
@@ -86,8 +88,7 @@ const Register = () => {
           flexDirection="column"
           justifyContent="center"
           alignItems="center"
-        
-          sx={{ color: 'white',marginRight:'120px' }}
+          sx={{ color: 'white'}}
         >
           <form onSubmit={handleSubmit}>
             {/* Error or Success Alert */}
@@ -104,20 +105,20 @@ const Register = () => {
               </Alert>
             )}
           
-            <Typography variant="h3" color="white" sx={{ marginTop: '30px',display:'flex',alignItems:'flex-start',fontFamily:'Barlow' }}>
+            <Typography variant="h3" color="white" sx={{ marginTop: '30px',display:'flex',alignItems:'flex-start' }}>
               Create an account 
             </Typography>
-            <Typography sx={{display:'flex',alignItems:'flex-start',fontFamily:'Barlow'}}>Enter new user credentials to register an account </Typography>
+            <Typography sx={{display:'flex',alignItems:'flex-start',paddingLeft:'5px'}}>Enter new user credentials to register an account </Typography>
             
             
 
 <Grid container spacing={1} sx={{ display: 'flex', alignItems: 'center', }}>
 <Box display="flex" flexDirection="column" width="245px" sx={{ margin: '20px 0px 20px 10px',padding:'20px 0px 20px 0px',backgroundColor:'#262626', }}>
-            <Typography color="white" sx={{marginRight:'140px',fontFamily:'Barlow'}}>
+            <Typography color="white" sx={{marginRight:'140px',}}>
               Username
             </Typography>
             <Input
-              fontFamily='Barlow'
+            
               type="text"
               disableUnderline
               placeholder='Type Here'
@@ -133,7 +134,7 @@ const Register = () => {
               height='73px'
               sx={{ margin: '20px 0px 20px 7px',padding:'13px 15px 13px 15px',backgroundColor:'#262626' }}
             >
-              <Typography color="white" marginRight={'190px'} fontFamily='Barlow'>
+              <Typography color="white" marginRight={'190px'} >
                 Role
               </Typography>
 
@@ -146,7 +147,7 @@ const Register = () => {
     onChange={(e) => setRole(e.target.value)}
     label="Select"
     disableUnderline
-    fontFamily='Barlow'
+
     placeholder='Select'
     sx={{
       marginTop:'5px',
@@ -185,7 +186,7 @@ const Register = () => {
 
             {/* Password Field with Toggle */}
             <Box display="flex" flexDirection="column" width="500px" sx={{ margin: '20px 0px 20px 0px',padding:'20px 0px 20px 0px',backgroundColor:'#262626' }}>
-            <Typography color="white" sx={{marginRight:'390px',fontFamily:'Barlow'}}>
+            <Typography color="white" sx={{marginRight:'390px'}}>
               Password
             </Typography>
             <Input
@@ -197,7 +198,7 @@ const Register = () => {
   sx={{ borderBottom: '2px solid #333333', color: 'white', flex: 1,margin:'0px 20px 0px 20px' }}
   endAdornment={
     <InputAdornment position="end">
-      <IconButton onClick={togglePasswordVisibility} sx={{ color: 'white' }}>
+      <IconButton onClick={togglePasswordVisibility} sx={{ color: 'white',marginBottom:'10px' }}>
         {showPassword ? <VisibilityOff /> : <Visibility />}
       </IconButton>
     </InputAdornment>

@@ -22,7 +22,7 @@ const ProductForm = () => {
   const [category, setCategory] = useState("");
   const [subCategory, setSubCategory] = useState("");
   const [noOfUnits, setNoOfUnits] = useState("");
-  const [siUnits, setSiUnits] = useState("Kg");
+  const [siUnits, setSiUnits] = useState("");
   const [unitWeight, setUnitWeight] = useState("");
   const [netWeight, setNetWeight] = useState("0");
   const [grossWeight, setGrossWeight] = useState("");
@@ -45,6 +45,7 @@ const ProductForm = () => {
   const [productIdPrefix, setProductIdPrefix] = useState("");
   const location = useLocation();
   const data = location.state;
+
   const selectedSuperCategory =
     productData.find((sc) => sc._id === superCategory)?.name || "";
   const selectedCategory =
@@ -143,6 +144,7 @@ const ProductForm = () => {
     formData.append("subCategory", selectedSubCategory);
     formData.append("numberOfUnits", noOfUnits);
     formData.append("siUnits", siUnits);
+    console.log(siUnits)
     formData.append("unitWeight", unitWeight);
     formData.append("netWeight", netWeight);
     formData.append("grossWeight", grossWeight);
@@ -253,13 +255,13 @@ const ProductForm = () => {
 
   return (
     <>
-      <Box sx={{width:'199vh',overflow:'auto',backgroundColor:'greenyellow',padding:'20px',marginLeft:'10px'}}>
-        <Typography variant="h4" sx={{display:"flex",alignItems:"flex-start",paddingLeft:'100px'}} >Welcome to the RE-Search project</Typography>
-        <Typography sx={{display:"flex",alignItems:"flex-start",paddingLeft:'100px'}}>Your work contributes to the world's largest Asian grocery database in Europe!</Typography>
+      <Box sx={{width:'200vh',overflow:'auto',backgroundColor:'greenyellow',padding:'20px',marginLeft:'10px'}}>
+        <Typography variant="h4" sx={{display:"flex",alignItems:"flex-start",paddingLeft:'140px'}} >Welcome to the RE-Search project</Typography>
+        <Typography sx={{display:"flex",alignItems:"flex-start",paddingLeft:'140px'}}>Your work contributes to the world's largest Asian grocery database in Europe!</Typography>
       </Box>
-      <Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'10px'}}>Basic information</Typography>
+      <Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'30px'}}>Basic information</Typography>
 
-      <Grid container spacing={2} paddingLeft="10px">
+      <Grid container spacing={2} paddingLeft="30px">
         <Grid item xs={4} marginTop='20px'>
           <TextField
             label="Product Name"
@@ -324,7 +326,7 @@ const ProductForm = () => {
       </Grid>
 
 
-      <Grid container spacing={2} paddingLeft='10px'>
+      <Grid container spacing={2} paddingLeft='30px'>
         <Grid item xs={4} marginTop='20px'>
           
           <FormControl fullWidth>
@@ -351,7 +353,7 @@ const ProductForm = () => {
   >
     {/* Placeholder item */}
     <MenuItem value="">
-      <em>Select Supercategory</em>
+      Select Supercategory
     </MenuItem>
 
     {/* Dynamic productData options */}
@@ -391,7 +393,7 @@ const ProductForm = () => {
             >
               {/* Placeholder item */}
     <MenuItem value="">
-      <em>Select Category</em>
+      Select Category
     </MenuItem>
 
               {getCategories(superCategory).map((cat) => (
@@ -425,7 +427,7 @@ const ProductForm = () => {
             >
               {/* Placeholder item */}
     <MenuItem value="">
-      <em>Select Sub-Category</em>
+      Select Sub-Category
     </MenuItem>
               {getSubCategories(superCategory, category).map((sub) => (
                 <MenuItem key={sub._id} value={sub._id}>
@@ -438,41 +440,50 @@ const ProductForm = () => {
       </Grid>
       
 
-      <Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'10px'}}>Product Specifications</Typography>
+      <Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'30px'}}>Product Specifications</Typography>
 
-      <Grid container spacing={2} paddingLeft='10px'>
+      <Grid container spacing={2} paddingLeft='30px'>
         <Grid item xs={4} marginTop='20px'>
         <FormControl fullWidth>
-      <Select
+      <select
         value={siUnits}
-        placeholder="Si unit"
         onChange={(e) => {
           setSiUnits(e.target.value);
         }}
-        displayEmpty // Ensures that the placeholder is shown when value is empty
-        sx={{
-          color: 'white',
-          '.MuiOutlinedInput-notchedOutline': {
-            borderColor: '#656567',
-          },
-          '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderColor: '#656567',
-          },
-          '.MuiSvgIcon-root': {
-            color: 'white',
-          },
+        style={{
+          color:'white',
+          borderColor: '#656567',
+          backgroundColor:'#1A1A1A',
+          height:'56px',
+          borderRadius:'6px',
+          padding:'0px 150px',
+          outline:'none',
+          fontFamily:'arial'
         }}
+        // displayEmpty // Ensures that the placeholder is shown when value is empty
+        // sx={{
+        //   color: 'white',
+        //   '.MuiOutlinedInput-notchedOutline': {
+        //     borderColor: '#656567',
+        //   },
+        //   '&:hover .MuiOutlinedInput-notchedOutline': {
+        //     borderColor: '#656567',
+        //   },
+        //   '.MuiSvgIcon-root': {
+        //     color: 'white',
+        //   },
+        // }}
       >
         {/* Placeholder item */}
-        <MenuItem value="">
-          Si Unit
-        </MenuItem>
+        <option value="">
+          SI Unit
+        </option>
 
         {/* Options */}
-        <MenuItem value="Kilograms">Kilograms</MenuItem>
-        <MenuItem value="Litres">Litres</MenuItem>
-        <MenuItem value="Pieces">Pieces</MenuItem>
-      </Select>
+        <option value="Kilograms">Kilograms</option>
+        <option value="Litres">Litres</option>
+        <option value="Pieces">Pieces</option>
+      </select>
     </FormControl>
         </Grid>
         <Grid item xs={4} marginTop='20px'>
@@ -507,7 +518,7 @@ const ProductForm = () => {
         </Grid>
       </Grid>
       
-      <Grid container spacing={2} paddingLeft='10px'>
+      <Grid container spacing={2} paddingLeft='30px'>
         <Grid item xs={4} marginTop='20px'>
           <TextField
             label="Unit Weight"
@@ -602,11 +613,11 @@ const ProductForm = () => {
         </Grid>
       </Grid>
 
-      <Typography variant="h6" sx={{ color: 'white',display:'flex',justifyItems:'center',marginTop:'40px',paddingLeft:'10px'}}>
-      NutritionalInformation(per 100g)
+      <Typography variant="h6" sx={{ color: 'white',display:'flex',justifyItems:'center',marginTop:'40px',paddingLeft:'30px'}}>
+      Nutritional Information(per 100g)
       </Typography>
 
-      <Grid container spacing={2} paddingLeft='10px'>
+      <Grid container spacing={2} paddingLeft='30px'>
         <Grid item xs={4} marginTop='20px'>
         <TextField
         name="calories"
@@ -719,7 +730,7 @@ const ProductForm = () => {
       </Grid>
 
 
-      <Grid container spacing={2} paddingLeft='10px'>
+      <Grid container spacing={2} paddingLeft='30px'>
         <Grid item xs={4} marginTop='20px'>
         <TextField
         name="carbs"
@@ -761,7 +772,7 @@ const ProductForm = () => {
         <Grid item xs={4} marginTop='20px'>
         <TextField
         name="fibre"
-  label="Fibre"
+  label="Fiber"
   variant="outlined"
   type="text"
   disableUnderline
@@ -779,7 +790,7 @@ const ProductForm = () => {
   InputLabelProps={{
     style: { color: 'white' }, // Label color
   }}
-  placeholder="Fibre"
+  placeholder="Fiber"
   sx={{
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
@@ -835,7 +846,7 @@ const ProductForm = () => {
       </Grid>
 
 
-      <Grid container spacing={2} paddingLeft='10px'>
+      <Grid container spacing={2} paddingLeft='30px'>
         <Grid item xs={4} marginTop='20px'>
         <TextField
         name="protein"
@@ -912,7 +923,7 @@ const ProductForm = () => {
         </Grid>
       </Grid>
 
-      <Typography variant="h6" color="white" sx={{display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'10px'}}>
+      <Typography variant="h6" color="white" sx={{display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'30px'}}>
             Ingredients
           </Typography>
       <textarea
@@ -927,12 +938,12 @@ const ProductForm = () => {
                 height: "100px",
                 width: "65%",
                 placeholder: "Type the ingredients here",
-                marginLeft:'10px'
+                marginLeft:'30px'
               }}
             />
 
 
-          <Typography variant="h6" color="white" sx={{display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'10px'}}>
+          <Typography variant="h6" color="white" sx={{display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'30px'}}>
             Description
           </Typography>
           <textarea
@@ -947,14 +958,14 @@ const ProductForm = () => {
                 height: "100px",
                 width: "65%",
                 placeholder: "Type the description here",
-                marginLeft:'10px'
+                marginLeft:'30px'
               }}
             />
 
     
-<Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'10px'}}>Additional Information</Typography>
+<Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'30px'}}>Additional Information</Typography>
 
-<Grid container spacing={2} paddingLeft='10px'>
+<Grid container spacing={2} paddingLeft='30px'>
         <Grid item xs={4} marginTop='20px'>
         <FormControl fullWidth>
       <Select
@@ -979,7 +990,7 @@ const ProductForm = () => {
       >
         {/* Placeholder item */}
         <MenuItem value="">
-          <em>Select Dietary</em>
+          Select Dietary
         </MenuItem>
 
         {/* Options */}
@@ -1047,7 +1058,7 @@ const ProductForm = () => {
   >
     {/* Placeholder item */}
     <MenuItem value="">
-      <em>Select Origin</em>
+      Select Origin
     </MenuItem>
 
     {countries.map((country, index) => (
@@ -1064,7 +1075,7 @@ const ProductForm = () => {
       </Grid>
 
 
-      <Grid container spacing={2} paddingLeft='10px'>
+      <Grid container spacing={2} paddingLeft='30px'>
         <Grid item xs={4} marginTop='20px'>
         <TextField
   label="Product Id Prefix"
@@ -1130,7 +1141,7 @@ const ProductForm = () => {
         </Grid>
       </Grid>
 
-      <Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'10px'}}>Attachments</Typography>
+      <Typography variant="h6" sx={{color:'white',display:'flex',alignItems:'flex-start',marginTop:'40px',paddingLeft:'30px'}}>Attachments</Typography>
           <Button
             component="label"
             variant="contained"
@@ -1144,7 +1155,11 @@ const ProductForm = () => {
               color: "white",
               marginTop:'10px',
               marginRight:'1120px',
-              paddingLeft:'10px'
+              paddingLeft:'30px',
+              "&:hover": {
+                backgroundColor: "#1A1A1A", // Prevent color change on hover
+                boxShadow: "none",           // Prevent shadow on hover
+              }
             }}
           >
             Upload
@@ -1158,7 +1173,7 @@ const ProductForm = () => {
       
       
 
-      <Box display="flex" paddingLeft='10px' flexWrap="wrap" gap={2} width="100%" mt={2}>
+      <Box display="flex" paddingLeft='30px' flexWrap="wrap" gap={2} width="100%" mt={2}>
         {files.map((file, index) => (
           <Box key={index} position="relative">
             <img

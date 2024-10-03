@@ -33,7 +33,7 @@ export default function StickyUserTable() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/v1/getAllUsers');
+        const response = await axios.get(`http://localhost:8000/api/v1/getAllUsers`);
         if (response.data.success) {
           setUsers(response.data.data);
           setFilteredUsers(response.data.data);
@@ -69,6 +69,7 @@ export default function StickyUserTable() {
 
   const handleEdit = (user) => {
     setEditingUser(user._id);
+    console.log("editable user is",user)
     setFormData({
       username: user.username,
       role: user.role,
@@ -85,7 +86,8 @@ export default function StickyUserTable() {
 
   const handleDelete = async (userId) => {
     try {
-      const response = await axios.delete('http://localhost:8000/api/v1/deleteUser/${userId}');
+      const response = await axios.delete(`http://localhost:8000/api/v1/deleteUser/${userId}`);
+      console.log("delete ",response.data)
       if (response.data.success) {
         setUsers(users.filter(user => user._id !== userId));
       } else {
@@ -104,7 +106,7 @@ export default function StickyUserTable() {
   
     try {
       const response = await axios.put(
-        'http://localhost:8000/api/v1/updateUser/${userId}',
+        `http://localhost:8000/api/v1/updateUser/${userId}`,
         formData,
         {
           headers: {
@@ -134,8 +136,9 @@ export default function StickyUserTable() {
   sx={{
     width: '200vh',
     height: '80vh',
-    overflow: 'auto',
-    marginTop:'20px',
+    overflow:'scroll',
+    margin:'30px 0px',
+  
     bgcolor: '#1A1A1A', // Removed the outer border by excluding 'border'
   }}
 >
@@ -143,7 +146,7 @@ export default function StickyUserTable() {
 
 
   <div style={{ backgroundColor: '#1A1A1A', color: 'white' }}>
-    <TableContainer sx={{ width:'800px',marginLeft:'150px',backgroundColor:'#262626' }}>
+    <TableContainer sx={{ width:'800px',marginLeft:'175px',backgroundColor:'#262626' }}>
       <div style={{display:'flex',height:'50px',padding:'30px 0px 0px 0px'}}>
       <Typography sx={{marginLeft:'20px',fontSize:'15px'}}>USER CREDENTIALS</Typography>
       <label htmlFor="roleFilter" style={{marginLeft:'400px'}}>Filter by role</label>
@@ -165,7 +168,7 @@ export default function StickyUserTable() {
     <option value="admin">Admin</option>
   </select>
   </div>
-      <Table stickyHeader aria-label="sticky table">
+      <Table stickyHeader aria-label="sticky table" >
         <TableHead>
           <TableRow>
             {columns.map((column) => (
@@ -236,7 +239,7 @@ export default function StickyUserTable() {
                   user.role
                 )}
               </TableCell>
-              <TableCell align="center" sx={{ color: 'white', borderRight: '1px solid black' }}>
+              <TableCell align="center" sx={{ color: 'white'}}>
                 {editingUser === user._id ? (
                   <Button variant="contained" onClick={() => handleUpdate(user._id)}>
                     Save

@@ -281,14 +281,15 @@ const ProductTable = ({username}) => {
 
   return (
     <>
-      <Box sx={{width:'200vh',overflow:'auto',backgroundColor:'#262626',marginTop: '30px',marginLeft: '10px'}}>
+      <Box sx={{width:'200vh',overflow:'auto',backgroundColor:'#262626',margin: '30px 0px 0px 45px'}}>
         <Typography variant="h4" sx={{display:'flex',alignItems:'flex-start',color:'white',padding:'20px'}}>Product Database</Typography>
       </Box>
       <TableContainer
         sx={{
           maxHeight: '80vh',
           width: '200vh',
-          marginLeft: '10px',
+          marginBottom:'30px',
+          marginLeft:'45px',
           overflow: 'auto',
           '&::-webkit-scrollbar': {
             display: 'none',

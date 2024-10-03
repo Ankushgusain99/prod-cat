@@ -36,10 +36,10 @@ export default function LeftDrawer() {
       color={'white'}
       
     >
-      <List sx={{backgroundColor:'#1A1A1A',color:'white'}}>
+      <List sx={{backgroundColor:'#1A1A1A',color:'white',paddingLeft:'65px'}}>
       <ListItem disablePadding>
           <ListItemButton onClick={() => navigate('/productTable')}>
-            <ListItemText primary="ProductTable" />
+            <ListItemText primary="Product Table" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
@@ -84,7 +84,7 @@ export default function LeftDrawer() {
         onClose={toggleDrawer(false)}
         
       >
-        <div style={{display:'flex',backgroundColor:'#262626',padding:'10px'}}>
+        <div style={{display:'flex',backgroundColor:'#333',padding:'10px'}}>
         <AccountCircleOutlinedIcon sx={{color:'white',fontSize: '60px',marginLeft:'10px'}} />
            <span style={{color:"white",fontSize:'20px',marginTop:'15px'}}>
              Hello, {username}
