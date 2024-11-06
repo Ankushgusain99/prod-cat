@@ -89,8 +89,8 @@ function Header({ username, role }) {
           {/* Logo aligned to the left */}
           <div className="navbar-logo">
             <div style={{ display: "flex" }}>
-              <img src="/logo_black.png" alt="Logo" className="logo" />
-              <span className="logo-text">INFYAIR</span>
+              <img src="/logo_bw.png" alt="Logo" className="logo" />
+              <h2 className="logo-text">INFYAIR</h2>
             </div>
           </div>
 
@@ -116,7 +116,7 @@ function Header({ username, role }) {
           </div>
 
           {/* Username and Logout button aligned to the right */}
-          <div className="navbar-right" style={{ marginRight: "30px" }}>
+          <div className="navbar-right" >
             {/* Explicitly set the size and color of the icon */}
 
             <button className="logout-btn" onClick={handleLogout}>
@@ -124,8 +124,8 @@ function Header({ username, role }) {
             </button>
           </div>
         </div>
+        <div className="drawer">{role !== "user" && <LeftDrawer />}</div>
       </header>
-      <div className="drawer">{role !== "user" && <LeftDrawer />}</div>
     </>
   );
 }

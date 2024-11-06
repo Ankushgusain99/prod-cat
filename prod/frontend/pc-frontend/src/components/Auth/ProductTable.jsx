@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import '../header.css';
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import axios from "axios";
 import {
@@ -274,14 +275,8 @@ const ProductTable = ({ username }) => {
 
   return (
     <>
-      <Box
-        sx={{
-          width: "200vh",
-          overflow: "auto",
-          backgroundColor: "#262626",
-          margin: "30px 0px 0px 40px",
-        }}
-      >
+    <div style={{padding:'0px 80px',marginTop:'50px'}}>
+    <div style={{backgroundColor:'#262626'}}>
         <Typography
           variant="h4"
           sx={{
@@ -293,13 +288,14 @@ const ProductTable = ({ username }) => {
         >
           Product Database
         </Typography>
-      </Box>
+      </div>
+    </div>
+      
+      <div style={{padding:'0px 80px'}}>
+
       <TableContainer
         sx={{
           maxHeight: "80vh",
-          width: "200vh",
-          marginBottom: "30px",
-          marginLeft: "40px",
           overflow: "auto",
           "&::-webkit-scrollbar": {
             display: "none",
@@ -485,6 +481,8 @@ const ProductTable = ({ username }) => {
           </TableBody>
         </Table>
       </TableContainer>
+      </div>
+      
 
       {/* Drawer component to show more details */}
       <Drawer anchor="right" open={isDrawerOpen} onClose={handleDrawerClose}>

@@ -132,28 +132,7 @@ exports.updateUser=async(req,res)=>{
     
         const user=await User.findById({_id:id})
 
-        // let hashedPassword;
-        //     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/;
-    
-        //     if(password.length >5 && password.length <20 && regex.test(password)){
-        //         hashedPassword=password
-        //     }
-        //     else{
-        //         return res.status(401).json({
-        //             status:false,
-        //             message:'Your password should be in between 5 and 20 characters and contain atleast a capital, small, numerical and special character'
-        //         })
-        //     }   
-                
-        //     //securing the password
-        //     try {
-        //         hashedPassword=await bcrypt.hash(password,10) 
-        //     } catch (error) {
-        //         res.status(500).json({
-        //             success:false,
-        //             message:'Error in hashing password'
-        //         })
-        //     } 
+         
             user.username=username
             //user.password=hashedPassword
             user.role=role

@@ -150,7 +150,7 @@ export default function StickyUserTable() {
           width: "200vh",
           height: "80vh",
           overflow: "auto",
-          margin: "30px 0px",
+          margin: "50px 0px",
           marginLeft: "40px",
           bgcolor: "#1A1A1A", // Removed the outer border by excluding 'border'
         }}

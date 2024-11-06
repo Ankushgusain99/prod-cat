@@ -10,10 +10,10 @@ export default function HeaderLogin() {
         <div className="navbar-logo">
           <Link to="/">
             <div style={{ display: "flex" }}>
-              <img src="/logo_black.png" alt="Logo" className="logo" />
-              <span className="logo-text" style={{ marginRight: "100px" }}>
+              <img src="/logo_bw.png" alt="Logo" className="logo" />
+              <h2 className="logo-text">
                 INFYAIR
-              </span>
+              </h2>
             </div>
           </Link>
         </div>

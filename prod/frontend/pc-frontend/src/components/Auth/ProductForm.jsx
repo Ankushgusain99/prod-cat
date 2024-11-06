@@ -258,13 +258,10 @@ const ProductForm = () => {
 
   return (
     <>
-      <Box
+    <div style={{backgroundColor: "greenyellow",margin: "0px 80px"}}>
+    <Box
         sx={{
-          width: "195vh",
-          overflow: "auto",
-          backgroundColor: "greenyellow",
-          padding: "20px",
-          marginLeft: "40px",
+          padding: "20px 80px",
         }}
       >
         <Typography
@@ -272,7 +269,6 @@ const ProductForm = () => {
           sx={{
             display: "flex",
             alignItems: "flex-start",
-            paddingLeft: "120px",
           }}
         >
           Welcome to the RE-Search project
@@ -281,14 +277,15 @@ const ProductForm = () => {
           sx={{
             display: "flex",
             alignItems: "flex-start",
-            paddingLeft: "120px",
           }}
         >
           Your work contributes to the world's largest Asian grocery database in
           Europe!
         </Typography>
       </Box>
-
+    </div>
+      
+    <div style={{margin:'20px 80px'}}>
       <Typography
         variant="h6"
         sx={{
@@ -1233,7 +1230,7 @@ const ProductForm = () => {
           backgroundColor: "#1A1A1A",
           color: "white",
           marginTop: "10px",
-          marginRight: "1050px",
+          marginRight: "950px",
           paddingLeft: "30px",
           "&:hover": {
             backgroundColor: "#1A1A1A", // Prevent color change on hover
@@ -1314,6 +1311,7 @@ const ProductForm = () => {
           </Button>
         </Grid>
       </Grid>
+      </div>
     </>
   );
 };

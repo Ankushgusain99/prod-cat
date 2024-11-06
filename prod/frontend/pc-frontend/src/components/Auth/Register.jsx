@@ -86,13 +86,15 @@ const Register = () => {
 
   return (
     <>
-      <Box
+    <div style={{margin:'0px 80px'}}>
+
+    <Box
         display="flex"
         flexDirection="row"
-        width="200vh"
+        padding='30px 0px'
         height="80vh"
         backgroundColor="1A1A1A"
-        paddingBottom="60px"
+        
       >
         {/* Left Side - Form */}
         <Box
@@ -297,12 +299,14 @@ const Register = () => {
           <img
             src="/login_register_logo.png"
             alt="Decorative"
-            style={{ width: "100%", height: "auto" }}
+            style={{ height: "auto" }}
           />
         </Box>
       </Box>
+    </div>
+      
     </>
-  );
+  )
 };
 
 export default Register;
